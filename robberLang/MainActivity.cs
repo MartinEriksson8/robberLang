@@ -14,6 +14,24 @@ namespace robberLang
             base.OnCreate(savedInstanceState);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
+
+            EditText phoneNumberText = FindViewById<EditText>(Resource.Id.regularText);
+            TextView translatedPhoneWord = FindViewById<TextView>(Resource.Id.robberText);
+            Button translateButton = FindViewById<Button>(Resource.Id.translateButton);
+
+            translateButton.Click += (sender, e) =>
+            {
+                // Translate user's alphanumeric phone number to numeric
+                string translatedNumber = Core.RobberTranslaor.ToRobber(phoneNumberText.Text);
+                if (string.IsNullOrWhiteSpace(translatedNumber))
+                {
+                    translatedPhoneWord.Text = string.Empty;
+                }
+                else
+                {
+                    translatedPhoneWord.Text = translatedNumber;
+                }
+            };
         }
     }
 }

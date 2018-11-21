@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Core
 {
-    public static class PhonewordTranslator
+    public static class RobberTranslaor
     {
         public static string ToRobber(string raw)
         {
